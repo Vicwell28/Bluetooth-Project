@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		C17707AF297EDC4400BF1E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17707AE297EDC4400BF1E5D /* AppDelegate.swift */; };
 		C17707B1297EDC4400BF1E5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17707B0297EDC4400BF1E5D /* SceneDelegate.swift */; };
-		C17707B3297EDC4400BF1E5D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17707B2297EDC4400BF1E5D /* ViewController.swift */; };
 		C17707B6297EDC4400BF1E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17707B4297EDC4400BF1E5D /* Main.storyboard */; };
 		C17707B9297EDC4400BF1E5D /* BluetoothProject.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C17707B7297EDC4400BF1E5D /* BluetoothProject.xcdatamodeld */; };
 		C17707BB297EDC4600BF1E5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C17707BA297EDC4600BF1E5D /* Assets.xcassets */; };
 		C17707BE297EDC4600BF1E5D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17707BC297EDC4600BF1E5D /* LaunchScreen.storyboard */; };
+		C17707D1297EE15F00BF1E5D /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17707D0297EE15F00BF1E5D /* MainTableViewController.swift */; };
+		C187C429297EE2FA005FB9D3 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C187C427297EE2FA005FB9D3 /* MainTableViewCell.swift */; };
+		C187C42A297EE2FA005FB9D3 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C187C428297EE2FA005FB9D3 /* MainTableViewCell.xib */; };
+		C1C15C06297EEF9000993B4D /* BluetoothTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C04297EEF9000993B4D /* BluetoothTableViewCell.swift */; };
+		C1C15C07297EEF9000993B4D /* BluetoothTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C17707AB297EDC4400BF1E5D /* BluetoothProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17707AE297EDC4400BF1E5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C17707B0297EDC4400BF1E5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		C17707B2297EDC4400BF1E5D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C17707B5297EDC4400BF1E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C17707B8297EDC4400BF1E5D /* BluetoothProject.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = BluetoothProject.xcdatamodel; sourceTree = "<group>"; };
 		C17707BA297EDC4600BF1E5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C17707BD297EDC4600BF1E5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C17707BF297EDC4600BF1E5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C17707D0297EE15F00BF1E5D /* MainTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewController.swift; sourceTree = "<group>"; };
+		C187C427297EE2FA005FB9D3 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		C187C428297EE2FA005FB9D3 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		C1C15C04297EEF9000993B4D /* BluetoothTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothTableViewCell.swift; sourceTree = "<group>"; };
+		C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BluetoothTableViewCell.xib; path = ../../Viewcontrollers/Cells/BluetoothTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +66,132 @@
 		C17707AD297EDC4400BF1E5D /* BluetoothProject */ = {
 			isa = PBXGroup;
 			children = (
+				C17707C9297EE09D00BF1E5D /* Local */,
+				C17707C8297EE08400BF1E5D /* Extensions */,
+				C17707C7297EE07E00BF1E5D /* Resources */,
+				C17707C6297EE07100BF1E5D /* Networking */,
+				C17707C5297EE06B00BF1E5D /* App */,
 				C17707AE297EDC4400BF1E5D /* AppDelegate.swift */,
 				C17707B0297EDC4400BF1E5D /* SceneDelegate.swift */,
-				C17707B2297EDC4400BF1E5D /* ViewController.swift */,
-				C17707B4297EDC4400BF1E5D /* Main.storyboard */,
-				C17707BA297EDC4600BF1E5D /* Assets.xcassets */,
 				C17707BC297EDC4600BF1E5D /* LaunchScreen.storyboard */,
 				C17707BF297EDC4600BF1E5D /* Info.plist */,
 				C17707B7297EDC4400BF1E5D /* BluetoothProject.xcdatamodeld */,
 			);
 			path = BluetoothProject;
+			sourceTree = "<group>";
+		};
+		C17707C5297EE06B00BF1E5D /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C17707CB297EE0BA00BF1E5D /* Viewcontrollers */,
+				C17707CA297EE0B100BF1E5D /* Storyboards */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		C17707C6297EE07100BF1E5D /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C17707CD297EE0CB00BF1E5D /* Requests */,
+				C17707CC297EE0C100BF1E5D /* Respnoses */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C17707C7297EE07E00BF1E5D /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C17707CF297EE0E900BF1E5D /* Colors */,
+				C17707CE297EE0E200BF1E5D /* Assets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		C17707C8297EE08400BF1E5D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		C17707C9297EE09D00BF1E5D /* Local */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Local;
+			sourceTree = "<group>";
+		};
+		C17707CA297EE0B100BF1E5D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C187C42B297EE308005FB9D3 /* Cells */,
+				C17707B4297EDC4400BF1E5D /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C17707CB297EE0BA00BF1E5D /* Viewcontrollers */ = {
+			isa = PBXGroup;
+			children = (
+				C187C42C297EE313005FB9D3 /* Cells */,
+				C17707D2297EE16400BF1E5D /* TableViewController */,
+			);
+			path = Viewcontrollers;
+			sourceTree = "<group>";
+		};
+		C17707CC297EE0C100BF1E5D /* Respnoses */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Respnoses;
+			sourceTree = "<group>";
+		};
+		C17707CD297EE0CB00BF1E5D /* Requests */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Requests;
+			sourceTree = "<group>";
+		};
+		C17707CE297EE0E200BF1E5D /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				C17707BA297EDC4600BF1E5D /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		C17707CF297EE0E900BF1E5D /* Colors */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Colors;
+			sourceTree = "<group>";
+		};
+		C17707D2297EE16400BF1E5D /* TableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				C17707D0297EE15F00BF1E5D /* MainTableViewController.swift */,
+			);
+			path = TableViewController;
+			sourceTree = "<group>";
+		};
+		C187C42B297EE308005FB9D3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */,
+				C187C428297EE2FA005FB9D3 /* MainTableViewCell.xib */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		C187C42C297EE313005FB9D3 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C187C427297EE2FA005FB9D3 /* MainTableViewCell.swift */,
+				C1C15C04297EEF9000993B4D /* BluetoothTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +254,8 @@
 			files = (
 				C17707BE297EDC4600BF1E5D /* LaunchScreen.storyboard in Resources */,
 				C17707BB297EDC4600BF1E5D /* Assets.xcassets in Resources */,
+				C187C42A297EE2FA005FB9D3 /* MainTableViewCell.xib in Resources */,
+				C1C15C07297EEF9000993B4D /* BluetoothTableViewCell.xib in Resources */,
 				C17707B6297EDC4400BF1E5D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -141,10 +267,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C17707B3297EDC4400BF1E5D /* ViewController.swift in Sources */,
+				C1C15C06297EEF9000993B4D /* BluetoothTableViewCell.swift in Sources */,
+				C17707D1297EE15F00BF1E5D /* MainTableViewController.swift in Sources */,
 				C17707AF297EDC4400BF1E5D /* AppDelegate.swift in Sources */,
 				C17707B9297EDC4400BF1E5D /* BluetoothProject.xcdatamodeld in Sources */,
 				C17707B1297EDC4400BF1E5D /* SceneDelegate.swift in Sources */,
+				C187C429297EE2FA005FB9D3 /* MainTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,11 +422,13 @@
 				DEVELOPMENT_TEAM = 269NMMFH34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BluetoothProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Diente Azul";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -322,11 +452,13 @@
 				DEVELOPMENT_TEAM = 269NMMFH34;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = BluetoothProject/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Diente Azul";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

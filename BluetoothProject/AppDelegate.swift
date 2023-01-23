@@ -79,3 +79,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+// MARK: - Override Func
+// MARK: - IBOutlet
+// MARK: - Public let / var
+// MARK: - Private let / var
+// MARK: - IBAction
+// MARK: - Public Func
+// MARK: - Private Func
+// MARK: - Services
+// MARK: - Other
