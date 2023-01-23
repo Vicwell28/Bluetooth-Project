@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreBluetooth
 
 class MainTableViewController: UITableViewController {
     
@@ -13,12 +14,8 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.register(UINib(nibName: self.myCellName, bundle: nil), forCellReuseIdentifier: self.myCellName)
-        
-        //
-        
-        
+        self.centralManager = CBCentralManager(delegate: self, queue: self.myDispatchQueue)
     }
-    //    @IBOutlet var tableView: UITableView!
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -41,34 +38,26 @@ class MainTableViewController: UITableViewController {
     
     
     // MARK: - Private let / var
+    
+    // CORE BLUETOOTH
+    
+    private var centralManager : CBCentralManager?
+    private var peripheralManager : CBPeripheralManager?
+    private var myDispatchQueue : DispatchQueue = DispatchQueue(label: "solidusystems.BluetoothProject")
+    
+    //
+    private let mySwitch : UISwitch = UISwitch(frame: .zero)
+
     private let myCellName : String = "MainTableViewCell"
     
-    // MARK: - IBOutlet
-    
-    
-    // MARK: - IBAction
-    
-    
-    // MARK: - Public Func
-    
-    
-    // MARK: - Private Func
-    
-    
-    struct mainStrucDevies : Codable {
-        let sectionName : String
-        let footerName : String
-        let itemsSection : [String]
-    }
-    
-    var myDevices : [mainStrucDevies] = [
-        mainStrucDevies(
+    private var myDevices : [MyListBluetooth] = [
+        MyListBluetooth(
             sectionName: "",
             footerName: "The bluetooth is on or off",
             itemsSection: [
                 "Bluetooth",
             ]),
-        mainStrucDevies(
+        MyListBluetooth(
             sectionName: "My Devices",
             footerName: "",
             itemsSection: [
@@ -78,36 +67,28 @@ class MainTableViewController: UITableViewController {
                 "AirPods Cuatro",
                 "AirPods Cinco",
             ]),
-        mainStrucDevies(
+        MyListBluetooth(
             sectionName: "Other Devices",
-            footerName : "",
+            footerName : "Searching for nearby bluetooth devices to be able to connect.",
             itemsSection: [
-                "AirPods SEIS",
-                "AirPods SIETE",
-                "AirPods OCHO",
-                "AirPods NUEVE",
-                "AirPods DIEZ",
-                "AirPods ONCE",
-                "AirPods SEIS",
-                "AirPods SIETE",
-                "AirPods OCHO",
-                "AirPods NUEVE",
-                "AirPods DIEZ",
-                "AirPods ONCE",
+                "AirPods Seis",
             ])]
     
+    // MARK: - IBOutlet
     
     
+    // MARK: - IBAction
     
     
-    let mySwitch : UISwitch = UISwitch(frame: .zero)
+    // MARK: - Public Func
+    @objc func switchChnage(sender : UISwitch) {
+        print(sender)
+    }
+    
+    // MARK: - Private Func
     
     
 }
-
-
-// MARK: - Services
-
 
 // MARK: - MainTableViewController
 extension MainTableViewController {
@@ -136,11 +117,6 @@ extension MainTableViewController {
     }
     
     
-    @objc func switchChnage(sender : UISwitch) {
-        print(sender)
-    }
-    
-    
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return self.myDevices[section].sectionName
     }
@@ -162,12 +138,109 @@ extension MainTableViewController {
     
     
     override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 30
+        return section == 0 ? 30 : 45
     }
     
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    
+}
+
+
+extension MainTableViewController : CBCentralManagerDelegate {
+    
+    func centralManagerDidUpdateState(_ central: CBCentralManager) {
+        print("CENTRAL MANAGER : centralManagerDidUpdateState")
+
+        switch central.state {
+        case .poweredOff :
+            print("POWERD OFF")
+        case .resetting:
+            print("RESETTING")
+        case .unauthorized:
+            print("UNAUTHORIZED")
+        case .unknown:
+            print("UNKNOWN")
+        case .unsupported:
+            print("UNSUPPORTED")
+        case .poweredOn:
+            print("POWERED ON")
+            DispatchQueue.main.async {
+                self.mySwitch.isOn = true
+            }
+            
+            self.centralManager?.scanForPeripherals(withServices: nil)
+            
+        @unknown default:
+            print("FATAL ERROR")
+        }
+    }
+    
+    
+    func centralManager(_ central: CBCentralManager, didFailToConnect peripheral: CBPeripheral, error: Error?) {
+        print("CENTRAL MANAGER : didFailToConnect")
+    }
+    
+    func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
+        print("CENTRAL MANAGER : didConnect")
+
+    }
+    
+    func centralManager(_ central: CBCentralManager, willRestoreState dict: [String : Any]) {
+        print("CENTRAL MANAGER : willRestoreState")
+
+    }
+    
+    func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        print("CENTRAL MANAGER : didDisconnectPeripheral")
+
+    }
+    
+    func centralManager(_ central: CBCentralManager, didUpdateANCSAuthorizationFor peripheral: CBPeripheral) {
+        print("CENTRAL MANAGER : didUpdateANCSAuthorizationFor")
+
+    }
+    
+    func centralManager(_ central: CBCentralManager, connectionEventDidOccur event: CBConnectionEvent, for peripheral: CBPeripheral) {
+        print("CENTRAL MANAGER : connectionEventDidOccur")
+
+    }
+    
+    func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
+        print("CENTRAL MANAGER : didDiscover")
+        
+        if let peripheralName = peripheral.name {
+            
+            if !self.myDevices[2].itemsSection.contains(peripheralName){
+                self.myDevices[2].itemsSection.append(peripheralName)
+                
+//                self.tableView.reloadData()
+                
+                DispatchQueue.main.async {
+                    self.tableView.reloadSections(IndexSet(integer: 2), with: .fade)
+                }
+            }
+            
+        }
+        
+        
+        
+              
+
+    }
+    
+    
+}
+
+extension MainTableViewController : CBPeripheralManagerDelegate {
+    
+    func peripheralManagerDidUpdateState(_ peripheral: CBPeripheralManager) {
+        print("peripheralManagerDidUpdateState")
+    }
+    
+    
 }
 

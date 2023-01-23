@@ -18,6 +18,7 @@
 		C187C42A297EE2FA005FB9D3 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C187C428297EE2FA005FB9D3 /* MainTableViewCell.xib */; };
 		C1C15C06297EEF9000993B4D /* BluetoothTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C04297EEF9000993B4D /* BluetoothTableViewCell.swift */; };
 		C1C15C07297EEF9000993B4D /* BluetoothTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */; };
+		C1C15C09297EFE0A00993B4D /* MyListBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C08297EFE0A00993B4D /* MyListBluetooth.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		C187C428297EE2FA005FB9D3 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		C1C15C04297EEF9000993B4D /* BluetoothTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothTableViewCell.swift; sourceTree = "<group>"; };
 		C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BluetoothTableViewCell.xib; path = ../../Viewcontrollers/Cells/BluetoothTableViewCell.xib; sourceTree = "<group>"; };
+		C1C15C08297EFE0A00993B4D /* MyListBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListBluetooth.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 		C17707CC297EE0C100BF1E5D /* Respnoses */ = {
 			isa = PBXGroup;
 			children = (
+				C1C15C08297EFE0A00993B4D /* MyListBluetooth.swift */,
 			);
 			path = Respnoses;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				C1C15C06297EEF9000993B4D /* BluetoothTableViewCell.swift in Sources */,
 				C17707D1297EE15F00BF1E5D /* MainTableViewController.swift in Sources */,
 				C17707AF297EDC4400BF1E5D /* AppDelegate.swift in Sources */,
+				C1C15C09297EFE0A00993B4D /* MyListBluetooth.swift in Sources */,
 				C17707B9297EDC4400BF1E5D /* BluetoothProject.xcdatamodeld in Sources */,
 				C17707B1297EDC4400BF1E5D /* SceneDelegate.swift in Sources */,
 				C187C429297EE2FA005FB9D3 /* MainTableViewCell.swift in Sources */,
@@ -424,6 +428,8 @@
 				INFOPLIST_FILE = BluetoothProject/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Diente Azul";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Privacy - Bluetooth Always Usage Description";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Privacy - Bluetooth Peripheral Usage Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -454,6 +460,8 @@
 				INFOPLIST_FILE = BluetoothProject/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "Diente Azul";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Privacy - Bluetooth Always Usage Description";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Privacy - Bluetooth Peripheral Usage Description";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
