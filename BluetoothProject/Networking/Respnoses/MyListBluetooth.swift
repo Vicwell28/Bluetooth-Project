@@ -6,15 +6,15 @@
 //
 
 import Foundation
+import CoreBluetooth
 
-struct MyListBluetooth : Codable {
+struct MyListBluetooth {
     var sectionName : String
     var footerName : String
-    var itemsSection : [String]
+    var itemsSection : [MyListBluetoothWithPeripheral]
 }
 
 struct MyListBluetoothWithPeripheral {
-    var itemSectionName
-    var idPeripheral
+    var itemSectionName : String
+    var idPeripheral : CBPeripheral?
 }
-

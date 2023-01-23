@@ -19,6 +19,11 @@
 		C1C15C06297EEF9000993B4D /* BluetoothTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C04297EEF9000993B4D /* BluetoothTableViewCell.swift */; };
 		C1C15C07297EEF9000993B4D /* BluetoothTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */; };
 		C1C15C09297EFE0A00993B4D /* MyListBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C08297EFE0A00993B4D /* MyListBluetooth.swift */; };
+		C1C15C0B297F14B800993B4D /* IBInspectable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C0A297F14B800993B4D /* IBInspectable+Extension.swift */; };
+		C1C15C0D297F14E500993B4D /* UIViewLoader+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C0C297F14E500993B4D /* UIViewLoader+Extension.swift */; };
+		C1C15C11297F2C0A00993B4D /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C0E297F2C0900993B4D /* 2.JPG */; };
+		C1C15C12297F2C0A00993B4D /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C0F297F2C0A00993B4D /* 1.JPG */; };
+		C1C15C13297F2C0A00993B4D /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C10297F2C0A00993B4D /* 3.JPG */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		C1C15C04297EEF9000993B4D /* BluetoothTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BluetoothTableViewCell.swift; sourceTree = "<group>"; };
 		C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BluetoothTableViewCell.xib; path = ../../Viewcontrollers/Cells/BluetoothTableViewCell.xib; sourceTree = "<group>"; };
 		C1C15C08297EFE0A00993B4D /* MyListBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListBluetooth.swift; sourceTree = "<group>"; };
+		C1C15C0A297F14B800993B4D /* IBInspectable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IBInspectable+Extension.swift"; sourceTree = "<group>"; };
+		C1C15C0C297F14E500993B4D /* UIViewLoader+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewLoader+Extension.swift"; path = "../../../../../../Documents/UIViewLoader+Extension.swift"; sourceTree = "<group>"; };
+		C1C15C0E297F2C0900993B4D /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
+		C1C15C0F297F2C0A00993B4D /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
+		C1C15C10297F2C0A00993B4D /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.JPG; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +122,8 @@
 		C17707C8297EE08400BF1E5D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				C1C15C0A297F14B800993B4D /* IBInspectable+Extension.swift */,
+				C1C15C0C297F14E500993B4D /* UIViewLoader+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -160,6 +172,9 @@
 			isa = PBXGroup;
 			children = (
 				C17707BA297EDC4600BF1E5D /* Assets.xcassets */,
+				C1C15C0F297F2C0A00993B4D /* 1.JPG */,
+				C1C15C0E297F2C0900993B4D /* 2.JPG */,
+				C1C15C10297F2C0A00993B4D /* 3.JPG */,
 			);
 			path = Assets;
 			sourceTree = "<group>";
@@ -255,11 +270,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1C15C11297F2C0A00993B4D /* 2.JPG in Resources */,
 				C17707BE297EDC4600BF1E5D /* LaunchScreen.storyboard in Resources */,
+				C1C15C12297F2C0A00993B4D /* 1.JPG in Resources */,
 				C17707BB297EDC4600BF1E5D /* Assets.xcassets in Resources */,
 				C187C42A297EE2FA005FB9D3 /* MainTableViewCell.xib in Resources */,
 				C1C15C07297EEF9000993B4D /* BluetoothTableViewCell.xib in Resources */,
 				C17707B6297EDC4400BF1E5D /* Main.storyboard in Resources */,
+				C1C15C13297F2C0A00993B4D /* 3.JPG in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,7 +292,9 @@
 				C17707D1297EE15F00BF1E5D /* MainTableViewController.swift in Sources */,
 				C17707AF297EDC4400BF1E5D /* AppDelegate.swift in Sources */,
 				C1C15C09297EFE0A00993B4D /* MyListBluetooth.swift in Sources */,
+				C1C15C0D297F14E500993B4D /* UIViewLoader+Extension.swift in Sources */,
 				C17707B9297EDC4400BF1E5D /* BluetoothProject.xcdatamodeld in Sources */,
+				C1C15C0B297F14B800993B4D /* IBInspectable+Extension.swift in Sources */,
 				C17707B1297EDC4400BF1E5D /* SceneDelegate.swift in Sources */,
 				C187C429297EE2FA005FB9D3 /* MainTableViewCell.swift in Sources */,
 			);
