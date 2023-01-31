@@ -19,6 +19,12 @@ class MainTableViewController: UITableViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        
+        if self.peripheralManager != nil {
+            print("PERIPERHIA;L NIL")
+            self.peripheralManager = nil
+            self.centralManager?.scanForPeripherals(withServices: nil)
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,15 +39,24 @@ class MainTableViewController: UITableViewController {
         super.viewDidDisappear(animated)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueDetailsPeripheral"{
+            let viewController = segue.destination as! DetailsPeripheralTableViewController
+            
+            viewController.centralManager = self.centralManager
+            viewController.peripheralManager = self.peripheralManager
+            
+            print("CENTRAL ENVIADO : \(self.centralManager!)")
+            print("PERIPHERAL ENVIADO : \(self.peripheralManager!)")
+        }
+    }
     
     // MARK: - Public let / var
     
-    public let skimmerDeviceUUID = CBUUID.init(string: "00001101-0000-1000-8000-00805F9B34FB")
 
     // MARK: - Private let / var
     
     // CORE BLUETOOTH
-    
     private var centralManager : CBCentralManager?
     private var peripheralManager : CBPeripheral?
     private var myDispatchQueue : DispatchQueue = DispatchQueue(label: "solidusystems.BluetoothProject")
@@ -93,13 +108,6 @@ class MainTableViewController: UITableViewController {
         print(sender)
         
         if self.peripheralManager != nil {
-            
-//            var parameter = NSInteger(1)
-//            let data = NSData(bytes: &parameter, length: 1)
-//            Data(count: 1)
-////            peripheral.writeValue(data, for: characteristic, type: .withResponse)
-//            self.peripheralManager!.writeValue(Data(count: 2), for: )
-            
             
         }
     }
@@ -227,10 +235,12 @@ extension MainTableViewController : CBCentralManagerDelegate {
         
         DispatchQueue.main.async {
             self.dismissViewControllerLoader()
+            self.performSegue(withIdentifier: "segueDetailsPeripheral", sender: nil)
         }
         
-        self.peripheralManager?.discoverServices([self.skimmerDeviceUUID])
-
+//        self.peripheralManager?.discoverServices([self.skimmerDeviceUUID])
+//        self.peripheralManager?.discoverServices(nil)
+        
         
     }
     
@@ -255,11 +265,10 @@ extension MainTableViewController : CBCentralManagerDelegate {
     }
     
     func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
-//        print("CENTRAL MANAGER : didDiscover")
-        
+        print("didDiscover")
         if let peripheralName = peripheral.name {
             
-            
+            print("PERIPERIAL : \(peripheralName) SERVICIOS \(String(describing: peripheral.services)) OTROS \(peripheral.state.rawValue)")
             
             if !self.myDevices[2].itemsSection.contains(where: {$0.itemSectionName ==  peripheralName}){
                 self.myDevices[2].itemsSection.append(

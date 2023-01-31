@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C14386702988426F00298EA6 /* DetailsPeripheralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C143866F2988426F00298EA6 /* DetailsPeripheralTableViewController.swift */; };
+		C14386722988428500298EA6 /* ServicesPeripheralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14386712988428500298EA6 /* ServicesPeripheralTableViewController.swift */; };
+		C14386742988429D00298EA6 /* CharacteristicPeripheralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14386732988429D00298EA6 /* CharacteristicPeripheralTableViewController.swift */; };
 		C17707AF297EDC4400BF1E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17707AE297EDC4400BF1E5D /* AppDelegate.swift */; };
 		C17707B1297EDC4400BF1E5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17707B0297EDC4400BF1E5D /* SceneDelegate.swift */; };
 		C17707B6297EDC4400BF1E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17707B4297EDC4400BF1E5D /* Main.storyboard */; };
@@ -27,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C143866F2988426F00298EA6 /* DetailsPeripheralTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPeripheralTableViewController.swift; sourceTree = "<group>"; };
+		C14386712988428500298EA6 /* ServicesPeripheralTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPeripheralTableViewController.swift; sourceTree = "<group>"; };
+		C14386732988429D00298EA6 /* CharacteristicPeripheralTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicPeripheralTableViewController.swift; sourceTree = "<group>"; };
 		C17707AB297EDC4400BF1E5D /* BluetoothProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17707AE297EDC4400BF1E5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C17707B0297EDC4400BF1E5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +196,9 @@
 			isa = PBXGroup;
 			children = (
 				C17707D0297EE15F00BF1E5D /* MainTableViewController.swift */,
+				C143866F2988426F00298EA6 /* DetailsPeripheralTableViewController.swift */,
+				C14386712988428500298EA6 /* ServicesPeripheralTableViewController.swift */,
+				C14386732988429D00298EA6 /* CharacteristicPeripheralTableViewController.swift */,
 			);
 			path = TableViewController;
 			sourceTree = "<group>";
@@ -292,9 +301,12 @@
 				C17707D1297EE15F00BF1E5D /* MainTableViewController.swift in Sources */,
 				C17707AF297EDC4400BF1E5D /* AppDelegate.swift in Sources */,
 				C1C15C09297EFE0A00993B4D /* MyListBluetooth.swift in Sources */,
+				C14386722988428500298EA6 /* ServicesPeripheralTableViewController.swift in Sources */,
 				C1C15C0D297F14E500993B4D /* UIViewLoader+Extension.swift in Sources */,
 				C17707B9297EDC4400BF1E5D /* BluetoothProject.xcdatamodeld in Sources */,
+				C14386702988426F00298EA6 /* DetailsPeripheralTableViewController.swift in Sources */,
 				C1C15C0B297F14B800993B4D /* IBInspectable+Extension.swift in Sources */,
+				C14386742988429D00298EA6 /* CharacteristicPeripheralTableViewController.swift in Sources */,
 				C17707B1297EDC4400BF1E5D /* SceneDelegate.swift in Sources */,
 				C187C429297EE2FA005FB9D3 /* MainTableViewCell.swift in Sources */,
 			);
