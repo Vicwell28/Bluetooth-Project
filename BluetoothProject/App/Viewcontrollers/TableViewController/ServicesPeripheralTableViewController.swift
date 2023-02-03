@@ -23,7 +23,7 @@ class ServicesPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---        ServicesPeripheralTableViewController       ---/
         /---                     viewDidLoad()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
@@ -32,6 +32,25 @@ class ServicesPeripheralTableViewController: UITableViewController {
         self.centralManager.delegate = self
         self.peripheralManager.delegate = self
         self.peripheralManager.discoverCharacteristics(nil, for: CBservice)
+        
+        self.datasource = []
+        
+        self.datasource.append(
+            servicePeriperal(
+                sectionName: "Custom Service",
+                footerName: "",
+                itemsSection: []))
+        
+        self.datasource.append(
+            servicePeriperal(
+                sectionName: "Properties",
+                footerName: "",
+                itemsSection: []))
+        
+        self.datasource[0].itemsSection.append(customService(name: "Service", uuid: CBservice.uuid.uuidString))
+        
+        
+        self.datasource[1].itemsSection.append(cutomsSeriveProperties(value: "Write, Read, Notify, Indicate"))
     }
     
     
@@ -41,7 +60,7 @@ class ServicesPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---        ServicesPeripheralTableViewController       ---/
         /---                  viewWillAppear()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
@@ -53,7 +72,7 @@ class ServicesPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---        ServicesPeripheralTableViewController       ---/
         /---                   viewDidAppear()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
@@ -65,7 +84,7 @@ class ServicesPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---        ServicesPeripheralTableViewController       ---/
         /---               viewWillDisappear()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
@@ -77,11 +96,12 @@ class ServicesPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---        ServicesPeripheralTableViewController       ---/
         /---                viewDidDisappear()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
         """)
+        
     }
     
     
@@ -98,17 +118,26 @@ class ServicesPeripheralTableViewController: UITableViewController {
     
     // MARK: - Private let / var
     
+    struct servicePeriperal {
+        var sectionName : String
+        var footerName : String
+        var itemsSection : [Any]
+    }
+    
+    struct customService {
+        let name : String
+        let uuid : String
+    }
+    
+    struct cutomsSeriveProperties {
+        let value : String
+    }
+    
+    var datasource : [servicePeriperal]!
+    
     
     // MARK: - IBAction
     
-    
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        return 0
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
-    }
     
     
 }
@@ -118,6 +147,82 @@ extension ServicesPeripheralTableViewController {
 }
 // MARK: - Private Func
 extension ServicesPeripheralTableViewController {
+    
+}
+
+// MARK: - MainTableViewController
+extension ServicesPeripheralTableViewController {
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return self.datasource.count
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.datasource[section].itemsSection.count
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let myCell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath) as! DetailsBluetoothTableViewCell
+        
+        
+        if indexPath.section == 0 {
+            myCell.title.text = (self.datasource[indexPath.section].itemsSection[indexPath.row] as! customService).uuid
+            myCell.selectionStyle = .none
+            myCell.isUserInteractionEnabled = false
+        } else {
+            myCell.title.text = (self.datasource[indexPath.section].itemsSection[indexPath.row] as! cutomsSeriveProperties).value
+            
+            if indexPath.section == 1 && indexPath.row == 0 {
+                
+                let imageview = UIImageView(frame: .zero)
+                
+                imageview.image = UIImage(systemName: "chevron.right")
+                
+                myCell.tintColor = .blue
+                myCell.accessoryView = imageview
+            } else {
+                myCell.selectionStyle = .none
+                myCell.isUserInteractionEnabled = false
+            }
+            
+        }
+        
+        return myCell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return self.datasource[section].sectionName
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+        return self.datasource[section].footerName
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 35
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return section == 0 ? 30 : 40
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        print("ESTE ES EL QUE SELECCIONO : \(self.datasource[indexPath.section].itemsSection[indexPath.row])")
+        
+        performSegue(withIdentifier: "segueCharacteristicPeripheral", sender: indexPath)
+    }
+    
+    
     
 }
 // MARK: - Services
@@ -177,7 +282,7 @@ extension ServicesPeripheralTableViewController : CBCentralManagerDelegate {
         
     }
 }
-    
+
 // MARK: - Other
 extension ServicesPeripheralTableViewController : CBPeripheralDelegate {
     
@@ -232,6 +337,12 @@ extension ServicesPeripheralTableViewController : CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         print("CBPeripheral : didUpdateValueFor")
         
+        print("\n\n")
+        
+        print("characteristic \(characteristic) \n\n")
+        print("characteristic \(String(describing: characteristic.value?.description)) \n\n")
+        print("characteristic \(String(describing: String(data: characteristic.value!, encoding: .ascii))) \n\n")
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {
@@ -249,6 +360,34 @@ extension ServicesPeripheralTableViewController : CBPeripheralDelegate {
         
         print(String(describing: service.characteristics))
         
+        
+        if let fistCharacteristic : CBCharacteristic = service.characteristics?.first {
+            
+            print("\n\n")
+            print("description : \(fistCharacteristic.description) \n\n")
+            print("isNotifying : \(fistCharacteristic.isNotifying) \n\n")
+            print("uuid : \(fistCharacteristic.uuid) \n\n")
+            print("service : \(String(describing: fistCharacteristic.service)) \n\n")
+            print("properties : \(fistCharacteristic.properties.rawValue) \n\n")
+            print("value : \(String(describing: fistCharacteristic.value)) \n\n")
+            
+            peripheral.readValue(for: fistCharacteristic)
+            
+            
+            
+            peripheral.setNotifyValue(true, for: fistCharacteristic)
+            
+            print("\n\n")
+            print("description : \(fistCharacteristic.description) \n\n")
+            print("isNotifying : \(fistCharacteristic.isNotifying) \n\n")
+            print("uuid : \(fistCharacteristic.uuid) \n\n")
+            print("service : \(String(describing: fistCharacteristic.service)) \n\n")
+            print("properties : \(fistCharacteristic.properties.rawValue) \n\n")
+            print("value : \(String(describing: fistCharacteristic.value)) \n\n")
+            
+            
+        }
+        
     }
     
     func peripheralIsReady(toSendWriteWithoutResponse peripheral: CBPeripheral) {
@@ -257,7 +396,15 @@ extension ServicesPeripheralTableViewController : CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
+        print("\n\n")
+        print("\n\n")
+        
         print("CBPeripheral : didUpdateNotificationStateFor")
+        
+        print("error : \(String(describing: error))\n\n")
+        print("value : \(String(describing: characteristic.value))\n\n")
+        
+        
         
     }
     

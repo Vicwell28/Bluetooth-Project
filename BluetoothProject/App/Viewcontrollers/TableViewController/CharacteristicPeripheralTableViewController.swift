@@ -17,7 +17,7 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---     CharacteristicPeripheralTableViewController    ---/
         /---                     viewDidLoad()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
@@ -30,7 +30,7 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---     CharacteristicPeripheralTableViewController    ---/
         /---                  viewWillAppear()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
@@ -42,7 +42,7 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---     CharacteristicPeripheralTableViewController    ---/
         /---                   viewDidAppear()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
@@ -54,7 +54,7 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---     CharacteristicPeripheralTableViewController    ---/
         /---               viewWillDisappear()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
@@ -66,7 +66,7 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
         print("""
         /----------------------------------------------------------/
         /---                                                    ---/
-        /---              Example_ViewController                ---/
+        /---     CharacteristicPeripheralTableViewController    ---/
         /---                viewDidDisappear()                  ---/
         /---                                                    ---/
         /----------------------------------------------------------/
@@ -80,11 +80,20 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
     // MARK: - Public let / var
     
     // CORE BLUETOOTH
-    public var centralManager : CBCentralManager?
-    public var peripheralManager : CBPeripheral?
+    public var centralManager : CBCentralManager!
+    public var peripheralManager : CBPeripheral!
+    public var CBservice : CBService!
+    public var CBcharacteristic : CBCharacteristic!
+    
+    private var dataSource : [servicePeriperal] = []
     
     // MARK: - Private let / var
     
+    struct servicePeriperal {
+        var sectionName : String
+        var footerName : String
+        var itemsSection : [Any]
+    }
     
     // MARK: - IBAction
 
