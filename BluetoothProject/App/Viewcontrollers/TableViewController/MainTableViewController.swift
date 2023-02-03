@@ -137,6 +137,8 @@ extension MainTableViewController {
             mySwitch.addTarget(self, action: #selector(switchChnage), for: .valueChanged)
             myCell.accessoryView = mySwitch
             myCell.selectionStyle = .none
+            myCell.isUserInteractionEnabled = false
+            
         }
         
         myCell.nameLable.text = self.myDevices[indexPath.section].itemsSection[indexPath.row].itemSectionName

@@ -11,7 +11,68 @@ import CoreBluetooth
 class CharacteristicPeripheralTableViewController: UITableViewController {
 
     // MARK: - Override Func
+    // MARK: - Override Func
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        print("""
+        /----------------------------------------------------------/
+        /---                                                    ---/
+        /---              Example_ViewController                ---/
+        /---                     viewDidLoad()                  ---/
+        /---                                                    ---/
+        /----------------------------------------------------------/
+        """)
+    }
     
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("""
+        /----------------------------------------------------------/
+        /---                                                    ---/
+        /---              Example_ViewController                ---/
+        /---                  viewWillAppear()                  ---/
+        /---                                                    ---/
+        /----------------------------------------------------------/
+        """)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        print("""
+        /----------------------------------------------------------/
+        /---                                                    ---/
+        /---              Example_ViewController                ---/
+        /---                   viewDidAppear()                  ---/
+        /---                                                    ---/
+        /----------------------------------------------------------/
+        """)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        print("""
+        /----------------------------------------------------------/
+        /---                                                    ---/
+        /---              Example_ViewController                ---/
+        /---               viewWillDisappear()                  ---/
+        /---                                                    ---/
+        /----------------------------------------------------------/
+        """)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        print("""
+        /----------------------------------------------------------/
+        /---                                                    ---/
+        /---              Example_ViewController                ---/
+        /---                viewDidDisappear()                  ---/
+        /---                                                    ---/
+        /----------------------------------------------------------/
+        """)
+    }
+
     
     // MARK: - IBOutlet
     
@@ -19,18 +80,14 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
     // MARK: - Public let / var
     
     // CORE BLUETOOTH
-    private var centralManager : CBCentralManager?
-    private var peripheralManager : CBPeripheral?
+    public var centralManager : CBCentralManager?
+    public var peripheralManager : CBPeripheral?
     
     // MARK: - Private let / var
     
     
     // MARK: - IBAction
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 0
     }
@@ -142,9 +199,6 @@ extension CharacteristicPeripheralTableViewController : CBPeripheralDelegate {
         print("CBPeripheral : didDiscoverIncludedServicesFor")
 
     }
-    
-    
-    
 }
 
 
