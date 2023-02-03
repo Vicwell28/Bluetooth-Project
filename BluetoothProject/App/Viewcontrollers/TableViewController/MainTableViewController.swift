@@ -23,8 +23,10 @@ class MainTableViewController: UITableViewController {
         if self.peripheralManager != nil {
             print("PERIPERHIA;L NIL")
             self.peripheralManager = nil
+            self.centralManager?.cancelPeripheralConnection(self.peripheralManager!)
             self.centralManager?.scanForPeripherals(withServices: nil)
         }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -53,7 +55,7 @@ class MainTableViewController: UITableViewController {
     
     // MARK: - Public let / var
     
-
+    
     // MARK: - Private let / var
     
     // CORE BLUETOOTH
@@ -179,7 +181,7 @@ extension MainTableViewController {
         DispatchQueue.main.async {
             self.showViewControllerLoader()
         }
-
+        
         
         if let id = self.myDevices[indexPath.section].itemsSection[indexPath.row].idPeripheral {
             self.peripheralManager = id
@@ -240,8 +242,8 @@ extension MainTableViewController : CBCentralManagerDelegate {
             self.performSegue(withIdentifier: "segueDetailsPeripheral", sender: nil)
         }
         
-//        self.peripheralManager?.discoverServices([self.skimmerDeviceUUID])
-//        self.peripheralManager?.discoverServices(nil)
+        //        self.peripheralManager?.discoverServices([self.skimmerDeviceUUID])
+        //        self.peripheralManager?.discoverServices(nil)
         
         
     }
@@ -303,27 +305,27 @@ extension MainTableViewController : CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor characteristic: CBCharacteristic, error: Error?) {
         print("CBPeripheral : didWriteValueFor")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didWriteValueFor descriptor: CBDescriptor, error: Error?) {
         print("CBPeripheral : didWriteValueFor")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didOpen channel: CBL2CAPChannel?, error: Error?) {
         print("CBPeripheral : didOpen")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didModifyServices invalidatedServices: [CBService]) {
         print("CBPeripheral : didModifyServices")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
         print("CBPeripheral : didDiscoverServices")
-
+        
         if let services = peripheral.services {
             print("ENCONTOR SERVICOS")
             
@@ -342,42 +344,42 @@ extension MainTableViewController : CBPeripheralDelegate {
     
     func peripheral(_ peripheral: CBPeripheral, didReadRSSI RSSI: NSNumber, error: Error?) {
         print("CBPeripheral : didReadRSSI")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         print("CBPeripheral : didUpdateValueFor")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor descriptor: CBDescriptor, error: Error?) {
         print("CBPeripheral : didUpdateValueFor")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {
         print("CBPeripheral : didDiscoverDescriptorsFor")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         print("CBPeripheral : didDiscoverCharacteristicsFor")
-
+        
     }
     
     func peripheralIsReady(toSendWriteWithoutResponse peripheral: CBPeripheral) {
         print("CBPeripheral : toSendWriteWithoutResponse")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didUpdateNotificationStateFor characteristic: CBCharacteristic, error: Error?) {
         print("CBPeripheral : didUpdateNotificationStateFor")
-
+        
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverIncludedServicesFor service: CBService, error: Error?) {
         print("CBPeripheral : didDiscoverIncludedServicesFor")
-
+        
     }
     
     

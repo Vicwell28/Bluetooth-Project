@@ -99,7 +99,7 @@ class DetailsPeripheralTableViewController: UITableViewController {
             segueServices.peripheralManager = self.peripheralManager
             segueServices.CBservice = (self.dataSouceDetails[(sender as! IndexPath).section].itemsSection[(sender as! IndexPath).row] as! servicesP).CBservice
             
-        
+            
         }
     }
     

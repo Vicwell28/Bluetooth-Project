@@ -217,13 +217,30 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="D9O-tO-3m9">
-                                <rect key="frame" x="20" y="55.5" width="374" height="43.5"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" id="D9O-tO-3m9" customClass="DetailsBluetoothTableViewCell" customModule="BluetoothProject" customModuleProvider="target">
+                                <rect key="frame" x="20" y="55.5" width="374" height="43"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="D9O-tO-3m9" id="jyf-Mg-i2k">
-                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="374" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="deV-7n-g2B">
+                                            <rect key="frame" x="20" y="11" width="334" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="deV-7n-g2B" secondAttribute="trailing" id="5lZ-1O-Cw5"/>
+                                        <constraint firstItem="deV-7n-g2B" firstAttribute="leading" secondItem="jyf-Mg-i2k" secondAttribute="leadingMargin" id="JYm-pi-xnZ"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="deV-7n-g2B" secondAttribute="bottom" id="VRc-6j-wZe"/>
+                                        <constraint firstItem="deV-7n-g2B" firstAttribute="top" secondItem="jyf-Mg-i2k" secondAttribute="topMargin" id="bnp-pI-dgr"/>
+                                    </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="title" destination="deV-7n-g2B" id="tJf-dX-dtr"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

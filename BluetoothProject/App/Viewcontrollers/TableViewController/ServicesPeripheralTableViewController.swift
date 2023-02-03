@@ -104,6 +104,25 @@ class ServicesPeripheralTableViewController: UITableViewController {
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueCharacteristicPeripheral" {
+            guard let segueServices = segue.destination as? CharacteristicPeripheralTableViewController else { return }
+            
+            print("ENTRO EN EL PREPARE")
+            
+            print("CENTRAL : \(self.centralManager!)")
+            print("peripheralManager : \(self.peripheralManager!)")
+            print("CBservice : \(self.CBservice!)")
+            print("CBcharacteristic : \(self.CBcharacteristic!)")
+            
+            
+            segueServices.centralManager = self.centralManager
+            segueServices.peripheralManager = self.peripheralManager
+            segueServices.CBservice = self.CBservice
+            segueServices.CBcharacteristic = self.CBcharacteristic!
+        }
+    }
+    
     
     
     // MARK: - IBOutlet
@@ -115,6 +134,8 @@ class ServicesPeripheralTableViewController: UITableViewController {
     public var centralManager : CBCentralManager!
     public var peripheralManager : CBPeripheral!
     public var CBservice : CBService!
+    
+    public var CBcharacteristic : CBCharacteristic?
     
     // MARK: - Private let / var
     
@@ -174,18 +195,13 @@ extension ServicesPeripheralTableViewController {
         } else {
             myCell.title.text = (self.datasource[indexPath.section].itemsSection[indexPath.row] as! cutomsSeriveProperties).value
             
-            if indexPath.section == 1 && indexPath.row == 0 {
-                
-                let imageview = UIImageView(frame: .zero)
-                
-                imageview.image = UIImage(systemName: "chevron.right")
-                
-                myCell.tintColor = .blue
-                myCell.accessoryView = imageview
-            } else {
-                myCell.selectionStyle = .none
-                myCell.isUserInteractionEnabled = false
-            }
+            let imageview = UIImageView(frame: .zero)
+            
+            imageview.image = UIImage(systemName: "chevron.right")
+            
+            myCell.title.textColor = .blue
+            
+            myCell.accessoryView = imageview
             
         }
         
@@ -221,7 +237,6 @@ extension ServicesPeripheralTableViewController {
         
         performSegue(withIdentifier: "segueCharacteristicPeripheral", sender: indexPath)
     }
-    
     
     
 }
@@ -370,6 +385,10 @@ extension ServicesPeripheralTableViewController : CBPeripheralDelegate {
             print("service : \(String(describing: fistCharacteristic.service)) \n\n")
             print("properties : \(fistCharacteristic.properties.rawValue) \n\n")
             print("value : \(String(describing: fistCharacteristic.value)) \n\n")
+            
+            self.CBcharacteristic = fistCharacteristic
+            
+            print("ESTA ES : \(self.CBcharacteristic!)")
             
             peripheral.readValue(for: fistCharacteristic)
             
