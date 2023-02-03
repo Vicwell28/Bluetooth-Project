@@ -215,7 +215,6 @@
 			children = (
 				C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */,
 				C187C428297EE2FA005FB9D3 /* MainTableViewCell.xib */,
-				C11E3026298C31010063591F /* DetailsBluetoothTableViewCell.swift */,
 				C11E3027298C31010063591F /* DetailsBluetoothTableViewCell.xib */,
 			);
 			path = Cells;
@@ -226,6 +225,7 @@
 			children = (
 				C187C427297EE2FA005FB9D3 /* MainTableViewCell.swift */,
 				C1C15C04297EEF9000993B4D /* BluetoothTableViewCell.swift */,
+				C11E3026298C31010063591F /* DetailsBluetoothTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
