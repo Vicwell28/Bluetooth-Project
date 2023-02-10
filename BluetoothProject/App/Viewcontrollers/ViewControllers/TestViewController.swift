@@ -1,14 +1,14 @@
 //
-//  Example+ViewController.swift
+//  TestViewController.swift
 //  BluetoothProject
 //
-//  Created by soliduSystem on 02/02/23.
+//  Created by soliduSystem on 10/02/23.
 //
 
 import UIKit
 
-class Example_ViewController: UIViewController {
-    
+class TestViewController: UIViewController {
+
     // MARK: - Override Func
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,18 +26,28 @@ class Example_ViewController: UIViewController {
         super.viewDidAppear(animated)
         self.showLifecycle("viewDidAppear()", for: self.description)
 
+        
+        
+        
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { Timer in
+            self.showLoaderTwo()
+        }
+        
+        
+        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { Timer in
+            self.dissmisLoaderTwo()
+        }
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.showLifecycle("viewWillDisappear()", for: self.description)
-
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.showLifecycle("viewDidDisappear()", for: self.description)
-
     }
     
     
@@ -51,7 +61,6 @@ class Example_ViewController: UIViewController {
     
     
     // MARK: - IBAction
-    
     
 }
 

@@ -6,6 +6,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -187,27 +188,28 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="wRF-BU-dWd" kind="relationship" relationship="rootViewController" id="Xr4-Tm-oqt"/>
+                        <segue destination="1kj-7X-jUC" kind="relationship" relationship="rootViewController" id="PW0-eP-Am5"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="99b-tR-msr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2045" y="-685"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="3G0-Pf-rTM">
+        <!--Test View Controller-->
+        <scene sceneID="UuZ-Lu-Z3g">
             <objects>
-                <viewController id="wRF-BU-dWd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="dSy-AA-nTb">
+                <viewController id="1kj-7X-jUC" customClass="TestViewController" customModule="BluetoothProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ZS0-lL-nhV">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="rNq-Bk-gZu"/>
+                        <viewLayoutGuide key="safeArea" id="Osb-Q5-ZkJ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Fcu-pc-MBc"/>
+                    <navigationItem key="navigationItem" id="5o0-tx-PvT"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5aN-1z-Jos" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NrB-e1-5Ja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3078" y="-685"/>
+            <point key="canvasLocation" x="2878" y="-685"/>
         </scene>
         <!--Characteristic Peripheral Table View Controller-->
         <scene sceneID="0PW-wY-UVF">
@@ -258,5 +260,8 @@
     <resources>
         <image name="shareplay" catalog="system" width="128" height="75"/>
         <image name="shareplay.slash" catalog="system" width="128" height="87"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>

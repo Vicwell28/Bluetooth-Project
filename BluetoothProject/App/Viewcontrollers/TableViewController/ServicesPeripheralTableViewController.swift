@@ -20,14 +20,8 @@ class ServicesPeripheralTableViewController: UITableViewController {
     // MARK: - Override Func
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---        ServicesPeripheralTableViewController       ---/
-        /---                     viewDidLoad()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewDidLoad()", for: self.description)
+
         
         self.centralManager.delegate = self
         self.peripheralManager.delegate = self
@@ -57,50 +51,26 @@ class ServicesPeripheralTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---        ServicesPeripheralTableViewController       ---/
-        /---                  viewWillAppear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewWillAppear()", for: self.description)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---        ServicesPeripheralTableViewController       ---/
-        /---                   viewDidAppear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewDidAppear()", for: self.description)
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---        ServicesPeripheralTableViewController       ---/
-        /---               viewWillDisappear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewWillDisappear()", for: self.description)
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---        ServicesPeripheralTableViewController       ---/
-        /---                viewDidDisappear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewDidDisappear()", for: self.description)
+
         
     }
     

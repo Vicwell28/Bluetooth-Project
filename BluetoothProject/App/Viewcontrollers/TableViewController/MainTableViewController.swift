@@ -13,13 +13,16 @@ class MainTableViewController: UITableViewController {
     // MARK: - Override Func
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.showLifecycle("viewDidLoad()", for: self.description)
+
         self.tableView.register(UINib(nibName: self.myCellName, bundle: nil), forCellReuseIdentifier: self.myCellName)
         self.centralManager = CBCentralManager(delegate: self, queue: self.myDispatchQueue)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
+        self.showLifecycle("viewDidAppear()", for: self.description)
+
         if self.peripheralManager != nil {
             print("PERIPERHIA;L NIL")
             self.peripheralManager = nil
@@ -31,14 +34,20 @@ class MainTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.showLifecycle("viewWillAppear()", for: self.description)
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        self.showLifecycle("viewWillDisappear()", for: self.description)
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
+        self.showLifecycle("viewDidDisappear()", for: self.description)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

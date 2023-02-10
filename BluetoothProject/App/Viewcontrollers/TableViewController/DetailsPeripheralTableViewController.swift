@@ -12,14 +12,8 @@ class DetailsPeripheralTableViewController: UITableViewController {
     
     // MARK: - Override Func
     override func viewDidLoad() {
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---       DetailsPeripheralTableViewController         ---/
-        /---                     viewDidLoad()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewDidLoad()", for: self.description)
+
         
         super.viewDidLoad()
         self.centralManager?.delegate = self
@@ -45,50 +39,26 @@ class DetailsPeripheralTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---       DetailsPeripheralTableViewController         ---/
-        /---                  viewWillAppear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewWillAppear()", for: self.description)
+
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---       DetailsPeripheralTableViewController         ---/
-        /---                   viewDidAppear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewDidAppear()", for: self.description)
+
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---       DetailsPeripheralTableViewController         ---/
-        /---               viewWillDisappear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewWillDisappear()", for: self.description)
+
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---       DetailsPeripheralTableViewController         ---/
-        /---                viewDidDisappear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewDidDisappear()", for: self.description)
+
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
