@@ -14,14 +14,8 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
     // MARK: - Override Func
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---     CharacteristicPeripheralTableViewController    ---/
-        /---                     viewDidLoad()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewDidLoad()", for: self.description)
+        
         
         self.centralManager.delegate = self
         self.peripheralManager.delegate = self
@@ -70,54 +64,22 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---     CharacteristicPeripheralTableViewController    ---/
-        /---                  viewWillAppear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewWillAppear()", for: self.description)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---     CharacteristicPeripheralTableViewController    ---/
-        /---                   viewDidAppear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewDidAppear()", for: self.description)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---     CharacteristicPeripheralTableViewController    ---/
-        /---               viewWillDisappear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
+        self.showLifecycle("viewWillDisappear()", for: self.description)
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
-        print("""
-        /----------------------------------------------------------/
-        /---                                                    ---/
-        /---     CharacteristicPeripheralTableViewController    ---/
-        /---                viewDidDisappear()                  ---/
-        /---                                                    ---/
-        /----------------------------------------------------------/
-        """)
-        
-        
-        
-        
+        self.showLifecycle("viewDidDisappear()", for: self.description)
     }
     
     
@@ -159,7 +121,6 @@ class CharacteristicPeripheralTableViewController: UITableViewController {
     }
     
     // MARK: - IBAction
-    
 }
 
 // MARK: - Public Func
