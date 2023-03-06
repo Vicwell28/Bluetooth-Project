@@ -19,25 +19,11 @@ class TestViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showLifecycle("viewWillAppear()", for: self.description)
-
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.showLifecycle("viewDidAppear()", for: self.description)
-
-        
-        
-        
-        Timer.scheduledTimer(withTimeInterval: 1, repeats: false) { Timer in
-            self.showLoaderTwo()
-        }
-        
-        
-        Timer.scheduledTimer(withTimeInterval: 10, repeats: false) { Timer in
-            self.dissmisLoaderTwo()
-        }
-        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -67,21 +53,21 @@ class TestViewController: UIViewController {
 
 
 // MARK: - Public Func
-extension Example_ViewController {
+extension TestViewController {
     
 }
 
 // MARK: - Private Func
-extension Example_ViewController {
+extension TestViewController {
     
 }
 
 // MARK: - Services
-extension Example_ViewController {
+extension TestViewController {
     
 }
 
 // MARK: - Other
-extension Example_ViewController {
+extension TestViewController {
     
 }

@@ -82,11 +82,19 @@ extension UIViewController {
             
             UIView.animate(withDuration: 0.15) {
                 
-                dataSourceView[idxViews]!.transform = CGAffineTransform(translationX: 0, y: -20)
+                if dataSourceView.isEmpty {
+                    repeatAnimation?.invalidate()
+                } else {
+                    dataSourceView[idxViews]!.transform = CGAffineTransform(translationX: 0, y: -20)
+                }
                 
             } completion: { Bool in
                 UIView.animate(withDuration: 0.15) {
-                    dataSourceView[idxViews]!.transform = CGAffineTransform(translationX: 0, y: 0)
+                    if dataSourceView.isEmpty {
+                        repeatAnimation?.invalidate()
+                    } else {
+                        dataSourceView[idxViews]!.transform = CGAffineTransform(translationX: 0, y: 0)
+                    }
                     
                     if idxViews >= (dataSourceView.count - 1) {
                         idxViews = 0

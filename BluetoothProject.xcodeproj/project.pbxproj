@@ -13,6 +13,8 @@
 		C14386702988426F00298EA6 /* DetailsPeripheralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C143866F2988426F00298EA6 /* DetailsPeripheralTableViewController.swift */; };
 		C14386722988428500298EA6 /* ServicesPeripheralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14386712988428500298EA6 /* ServicesPeripheralTableViewController.swift */; };
 		C14386742988429D00298EA6 /* CharacteristicPeripheralTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C14386732988429D00298EA6 /* CharacteristicPeripheralTableViewController.swift */; };
+		C15A670C299ABB4900C3D7CF /* servicePeriperal.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A670B299ABB4800C3D7CF /* servicePeriperal.swift */; };
+		C15A670E299ABC2A00C3D7CF /* detailsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C15A670D299ABC2A00C3D7CF /* detailsService.swift */; };
 		C17707AF297EDC4400BF1E5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17707AE297EDC4400BF1E5D /* AppDelegate.swift */; };
 		C17707B1297EDC4400BF1E5D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C17707B0297EDC4400BF1E5D /* SceneDelegate.swift */; };
 		C17707B6297EDC4400BF1E5D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C17707B4297EDC4400BF1E5D /* Main.storyboard */; };
@@ -29,7 +31,6 @@
 		C1C15C07297EEF9000993B4D /* BluetoothTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */; };
 		C1C15C09297EFE0A00993B4D /* MyListBluetooth.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C08297EFE0A00993B4D /* MyListBluetooth.swift */; };
 		C1C15C0B297F14B800993B4D /* IBInspectable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C0A297F14B800993B4D /* IBInspectable+Extension.swift */; };
-		C1C15C0D297F14E500993B4D /* UIViewLoader+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C15C0C297F14E500993B4D /* UIViewLoader+Extension.swift */; };
 		C1C15C11297F2C0A00993B4D /* 2.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C0E297F2C0900993B4D /* 2.JPG */; };
 		C1C15C12297F2C0A00993B4D /* 1.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C0F297F2C0A00993B4D /* 1.JPG */; };
 		C1C15C13297F2C0A00993B4D /* 3.JPG in Resources */ = {isa = PBXBuildFile; fileRef = C1C15C10297F2C0A00993B4D /* 3.JPG */; };
@@ -42,6 +43,8 @@
 		C143866F2988426F00298EA6 /* DetailsPeripheralTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPeripheralTableViewController.swift; sourceTree = "<group>"; };
 		C14386712988428500298EA6 /* ServicesPeripheralTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServicesPeripheralTableViewController.swift; sourceTree = "<group>"; };
 		C14386732988429D00298EA6 /* CharacteristicPeripheralTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacteristicPeripheralTableViewController.swift; sourceTree = "<group>"; };
+		C15A670B299ABB4800C3D7CF /* servicePeriperal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = servicePeriperal.swift; sourceTree = "<group>"; };
+		C15A670D299ABC2A00C3D7CF /* detailsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = detailsService.swift; sourceTree = "<group>"; };
 		C17707AB297EDC4400BF1E5D /* BluetoothProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BluetoothProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C17707AE297EDC4400BF1E5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C17707B0297EDC4400BF1E5D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,7 +63,6 @@
 		C1C15C05297EEF9000993B4D /* BluetoothTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = BluetoothTableViewCell.xib; path = ../../Viewcontrollers/Cells/BluetoothTableViewCell.xib; sourceTree = "<group>"; };
 		C1C15C08297EFE0A00993B4D /* MyListBluetooth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyListBluetooth.swift; sourceTree = "<group>"; };
 		C1C15C0A297F14B800993B4D /* IBInspectable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IBInspectable+Extension.swift"; sourceTree = "<group>"; };
-		C1C15C0C297F14E500993B4D /* UIViewLoader+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewLoader+Extension.swift"; path = "../../../../../../Documents/UIViewLoader+Extension.swift"; sourceTree = "<group>"; };
 		C1C15C0E297F2C0900993B4D /* 2.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 2.JPG; sourceTree = "<group>"; };
 		C1C15C0F297F2C0A00993B4D /* 1.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 1.JPG; sourceTree = "<group>"; };
 		C1C15C10297F2C0A00993B4D /* 3.JPG */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 3.JPG; sourceTree = "<group>"; };
@@ -141,7 +143,6 @@
 			isa = PBXGroup;
 			children = (
 				C1C15C0A297F14B800993B4D /* IBInspectable+Extension.swift */,
-				C1C15C0C297F14E500993B4D /* UIViewLoader+Extension.swift */,
 				C19CC28E29969879003D7DF3 /* UIViewLoaderTwo+Extension.swift */,
 				C19CC2932996A149003D7DF3 /* UIViewShowLifeCycle+Extension.swift */,
 			);
@@ -178,6 +179,8 @@
 			isa = PBXGroup;
 			children = (
 				C1C15C08297EFE0A00993B4D /* MyListBluetooth.swift */,
+				C15A670B299ABB4800C3D7CF /* servicePeriperal.swift */,
+				C15A670D299ABC2A00C3D7CF /* detailsService.swift */,
 			);
 			path = Respnoses;
 			sourceTree = "<group>";
@@ -330,8 +333,9 @@
 				C17707AF297EDC4400BF1E5D /* AppDelegate.swift in Sources */,
 				C1C15C09297EFE0A00993B4D /* MyListBluetooth.swift in Sources */,
 				C14386722988428500298EA6 /* ServicesPeripheralTableViewController.swift in Sources */,
-				C1C15C0D297F14E500993B4D /* UIViewLoader+Extension.swift in Sources */,
+				C15A670E299ABC2A00C3D7CF /* detailsService.swift in Sources */,
 				C17707B9297EDC4400BF1E5D /* BluetoothProject.xcdatamodeld in Sources */,
+				C15A670C299ABB4900C3D7CF /* servicePeriperal.swift in Sources */,
 				C19CC2942996A149003D7DF3 /* UIViewShowLifeCycle+Extension.swift in Sources */,
 				C14386702988426F00298EA6 /* DetailsPeripheralTableViewController.swift in Sources */,
 				C1C15C0B297F14B800993B4D /* IBInspectable+Extension.swift in Sources */,
