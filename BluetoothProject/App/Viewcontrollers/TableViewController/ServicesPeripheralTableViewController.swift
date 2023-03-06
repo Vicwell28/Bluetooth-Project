@@ -8,24 +8,12 @@
 import UIKit
 import CoreBluetooth
 
-extension UIViewController {
-    
-}
-
-
 class ServicesPeripheralTableViewController: UITableViewController {
-    
-    
     
     // MARK: - Override Func
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showLifecycle("viewDidLoad()", for: self.description)
-
-        
-        self.centralManager.delegate = self
-        self.peripheralManager.delegate = self
-        self.peripheralManager.discoverCharacteristics(nil, for: CBservice)
         
         self.datasource = []
         
@@ -52,6 +40,10 @@ class ServicesPeripheralTableViewController: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showLifecycle("viewWillAppear()", for: self.description)
+        
+        self.centralManager.delegate = self
+        self.peripheralManager.delegate = self
+        self.peripheralManager.discoverCharacteristics(nil, for: CBservice)
 
     }
     
@@ -104,26 +96,9 @@ class ServicesPeripheralTableViewController: UITableViewController {
     public var centralManager : CBCentralManager!
     public var peripheralManager : CBPeripheral!
     public var CBservice : CBService!
-    
     public var CBcharacteristic : CBCharacteristic?
     
     // MARK: - Private let / var
-    
-    struct servicePeriperal {
-        var sectionName : String
-        var footerName : String
-        var itemsSection : [Any]
-    }
-    
-    struct customService {
-        let name : String
-        let uuid : String
-    }
-    
-    struct cutomsSeriveProperties {
-        let value : String
-    }
-    
     var datasource : [servicePeriperal]!
     
     
@@ -255,6 +230,11 @@ extension ServicesPeripheralTableViewController : CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("CENTRAL MANAGER : didDisconnectPeripheral")
         
+        DispatchQueue.main.async {
+            let myViewController = self.navigationController?.viewControllers.first(where: {$0 is MainTableViewController})
+            self.navigationController?.popToViewController(myViewController!, animated: true)
+        }
+        
     }
     
     func centralManager(_ central: CBCentralManager, didUpdateANCSAuthorizationFor peripheral: CBPeripheral) {
@@ -322,6 +302,14 @@ extension ServicesPeripheralTableViewController : CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         print("CBPeripheral : didUpdateValueFor")
         
+        
+        guard let valueCharacterist = characteristic.value else { return }
+        
+        if let valueString = String(data: valueCharacterist, encoding: .utf8) {
+            print("ESTE ES EL VALUR REAL DEL PERIFIPERIAL : \(valueString)")
+        }
+            
+        
         print("\n\n")
         
         print("characteristic \(characteristic) \n\n")
@@ -341,12 +329,33 @@ extension ServicesPeripheralTableViewController : CBPeripheralDelegate {
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
-        print("CBPeripheral : didDiscoverCharacteristicsFor")
+        print("CBPeripheral : didDiscoverCharacteristicsFor ESTE")
         
         print(String(describing: service.characteristics))
         
         
         if let fistCharacteristic : CBCharacteristic = service.characteristics?.first {
+            
+            if fistCharacteristic.properties.contains(.read) {
+                print("\(fistCharacteristic.uuid) .read")
+                peripheral.readValue(for: fistCharacteristic)
+            }
+            
+            if fistCharacteristic.properties.contains(.notify) {
+                print("\(fistCharacteristic.uuid) .notify")
+            }
+            
+            if fistCharacteristic.properties.contains(.write) {
+                print("\(fistCharacteristic.uuid) .write")
+            }
+            
+            if fistCharacteristic.properties.contains(.indicate) {
+                print("\(fistCharacteristic.uuid) .indicate")
+            }
+            
+            if fistCharacteristic.properties.contains(.broadcast) {
+                print("\(fistCharacteristic.uuid) .broadcast")
+            }
             
             print("\n\n")
             print("description : \(fistCharacteristic.description) \n\n")

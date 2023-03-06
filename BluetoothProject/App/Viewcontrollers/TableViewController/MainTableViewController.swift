@@ -14,40 +14,40 @@ class MainTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.showLifecycle("viewDidLoad()", for: self.description)
-
         self.tableView.register(UINib(nibName: self.myCellName, bundle: nil), forCellReuseIdentifier: self.myCellName)
-        self.centralManager = CBCentralManager(delegate: self, queue: self.myDispatchQueue)
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.showLifecycle("viewDidAppear()", for: self.description)
-
+        
+        self.centralManager = CBCentralManager(delegate: self, queue: self.myDispatchQueue)
+        
+        
         if self.peripheralManager != nil {
             print("PERIPERHIA;L NIL")
-            self.peripheralManager = nil
             self.centralManager?.cancelPeripheralConnection(self.peripheralManager!)
             self.centralManager?.scanForPeripherals(withServices: nil)
+            self.peripheralManager = nil
         }
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showLifecycle("viewWillAppear()", for: self.description)
-
+        
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.showLifecycle("viewWillDisappear()", for: self.description)
-
+        self.myDevices[2].itemsSection.removeAll()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
         super.viewDidDisappear(animated)
         self.showLifecycle("viewDidDisappear()", for: self.description)
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -107,6 +107,7 @@ class MainTableViewController: UITableViewController {
         ),
         
     ]
+    
     
     // MARK: - IBOutlet
     
@@ -188,7 +189,8 @@ extension MainTableViewController {
         
         
         DispatchQueue.main.async {
-            self.showViewControllerLoader()
+//            self.showViewControllerLoader()
+            self.showLoaderTwo()
         }
         
         
@@ -239,7 +241,8 @@ extension MainTableViewController : CBCentralManagerDelegate {
         print("CENTRAL MANAGER : didFailToConnect")
         
         DispatchQueue.main.async {
-            self.dismissViewControllerLoader()
+//            self.dismissViewControllerLoader()
+            self.dissmisLoaderTwo()
         }
     }
     
@@ -247,7 +250,8 @@ extension MainTableViewController : CBCentralManagerDelegate {
         print("CENTRAL MANAGER : didConnect")
         
         DispatchQueue.main.async {
-            self.dismissViewControllerLoader()
+//            self.dismissViewControllerLoader()
+            self.dissmisLoaderTwo()
             self.performSegue(withIdentifier: "segueDetailsPeripheral", sender: nil)
         }
         
@@ -296,14 +300,7 @@ extension MainTableViewController : CBCentralManagerDelegate {
             }
             
         }
-        
-        
-        
-        
-        
     }
-    
-    
 }
 
 extension MainTableViewController : CBPeripheralDelegate {

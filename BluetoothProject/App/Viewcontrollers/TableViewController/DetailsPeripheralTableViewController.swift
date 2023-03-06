@@ -13,15 +13,7 @@ class DetailsPeripheralTableViewController: UITableViewController {
     // MARK: - Override Func
     override func viewDidLoad() {
         self.showLifecycle("viewDidLoad()", for: self.description)
-
-        
         super.viewDidLoad()
-        self.centralManager?.delegate = self
-        self.peripheralManager?.delegate = self
-        
-        print("RES ENVIADO : \(self.centralManager!)")
-        print("RES ENVIADO : \(self.peripheralManager!)")
-        
         //        self.tableView.register(UINib(nibName: self.myCellName, bundle: nil), forCellReuseIdentifier: self.myCellName)
         self.tableView.estimatedRowHeight = 200.0
         self.tableView.rowHeight = UITableView.automaticDimension
@@ -34,24 +26,34 @@ class DetailsPeripheralTableViewController: UITableViewController {
         self.dataSouceDetails[1].itemsSection.append(AdvertimentData(title: self.peripheralManager!.name!, des: "Device Local name"))
         
         
-        self.peripheralManager?.discoverServices(nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.showLifecycle("viewWillAppear()", for: self.description)
+        
+        self.centralManager?.delegate = self
+        self.peripheralManager?.delegate = self
+        
+        print("RES ENVIADO : \(self.centralManager!)")
+        print("RES ENVIADO : \(self.peripheralManager!)")
+        
+        
+        self.peripheralManager?.discoverServices(nil)
+
 
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.showLifecycle("viewDidAppear()", for: self.description)
-
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.showLifecycle("viewWillDisappear()", for: self.description)
+        
+        self.dataSouceDetails[2].itemsSection.removeAll()
 
     }
     
@@ -77,26 +79,7 @@ class DetailsPeripheralTableViewController: UITableViewController {
     
     var dataSouceDetails : [detailsService] = []
     
-    struct detailsService {
-        var sectionName : String
-        var footerName : String
-        var itemsSection : [Any]
-    }
     
-    struct deviceUUID {
-        let UUID : UUID
-    }
-    
-    struct AdvertimentData {
-        let title : String
-        let des : String
-    }
-    
-    struct servicesP {
-        let custom : String
-        let CBservice : CBService
-        let isPrimary : Bool
-    }
     
     private let myCellName : String = "DetailsBluetoothTableViewCell"
     
@@ -175,11 +158,16 @@ extension DetailsPeripheralTableViewController : CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         print("CENTRAL MANAGER : didDisconnectPeripheral")
         
+        DispatchQueue.main.async {
+            let myViewController = self.navigationController?.viewControllers.first(where: {$0 is MainTableViewController})
+            self.navigationController?.popToViewController(myViewController!, animated: true)
+        }
+        
     }
     
     func centralManager(_ central: CBCentralManager, didUpdateANCSAuthorizationFor peripheral: CBPeripheral) {
         print("CENTRAL MANAGER : didUpdateANCSAuthorizationFor")
-        
+    
     }
     
     func centralManager(_ central: CBCentralManager, connectionEventDidOccur event: CBConnectionEvent, for peripheral: CBPeripheral) {
